@@ -8,8 +8,6 @@
 # # Group: QA2022
 # # Date: 01.04.2023
 
-ls = (1, -8, 76, -32, 7, 0, -12, 22, 6,)  # Не упорядочены
-
 
 def check_descending(ls):
     flag = True
@@ -27,9 +25,6 @@ def check_ascending(ls):
     return flag
 
 
-lst = (44, 32, 21, 12, 9, 5, 0, -5, -23, -54)  # По убыванию
-
-
 def check_descending(lst):
     flag = True
     for index in range(len(lst) - 1):
@@ -44,9 +39,6 @@ def check_ascending(lst):
         if lst[index] > lst[index + 1]:
             flag = False
     return flag
-
-
-list = (-32, -12, 0, 3, 7, 9, 12, 56, 78, 84)  # По возрастанию
 
 
 def check_descending(list):
@@ -66,6 +58,10 @@ def check_ascending(list):
 
 
 def main():
+    ls = (1, -8, 76, -32, 7, 0, -12, 22, 6,)  # Не упорядочены
+    lst = (44, 32, 21, 12, 9, 5, 0, -5, -23, -54)  # По убыванию
+    list = (-32, -12, 0, 3, 7, 9, 12, 56, 78, 84)  # По возрастанию
+
     print(check_descending(ls) or check_ascending(ls))
     print(check_descending(lst) or check_ascending(lst))
     print(check_descending(list) or check_ascending(list))
