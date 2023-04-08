@@ -10,6 +10,12 @@
 
 
 def check_descending(ls):
+    if not isinstance(ls, (list, tuple)):
+        return False
+
+    if len(ls) == 0 or len(ls) == 1:
+        return False
+
     flag = True
     for index in range(len(ls) - 1):
         if ls[index] < ls[index + 1]:
@@ -18,6 +24,12 @@ def check_descending(ls):
 
 
 def check_ascending(ls):
+    if not isinstance(ls, (list, tuple)):
+        return False
+
+    if len(ls) == 0 or len(ls) == 1:
+        return False
+
     flag = True
     for index in range(len(ls) - 1):
         if ls[index] > ls[index + 1]:
@@ -25,47 +37,19 @@ def check_ascending(ls):
     return flag
 
 
-def check_descending(lst):
-    flag = True
-    for index in range(len(lst) - 1):
-        if lst[index] < lst[index + 1]:
-            flag = False
-    return flag
+def check(ls):
+    return check_descending(ls) or check_ascending(ls)
 
 
-def check_ascending(lst):
-    flag = True
-    for index in range(len(lst) - 1):
-        if lst[index] > lst[index + 1]:
-            flag = False
-    return flag
-
-
-def check_descending(list):
-    flag = True
-    for index in range(len(list) - 1):
-        if list[index] < list[index + 1]:
-            flag = False
-    return flag
-
-
-def check_ascending(list):
-    flag = True
-    for index in range(len(list) - 1):
-        if list[index] > list[index + 1]:
-            flag = False
-    return flag
-
-
-def main():
-    ls = (1, -8, 76, -32, 7, 0, -12, 22, 6,)  # Не упорядочены
-    lst = (44, 32, 21, 12, 9, 5, 0, -5, -23, -54)  # По убыванию
-    list = (-32, -12, 0, 3, 7, 9, 12, 56, 78, 84)  # По возрастанию
-
-    print(check_descending(ls) or check_ascending(ls))
-    print(check_descending(lst) or check_ascending(lst))
-    print(check_descending(list) or check_ascending(list))
+def test():
+    print(check([1, -8, 76, -32, 7, 0, -12, 22, 6]) == False)  # Не упорядочены
+    print(check([44, 32, 21, 12, 9, 5, 0, -5, -23, -54]) == True)  # По убыванию
+    print(check([-32, -12, 0, 3, 7, 9, 12, 56, 78, 84]) == True)  # По возрастанию
+    print(check([]) == False)
+    print(check("kjjhcgcbgch") == False)
+    print(check("099@#%^^%@334576") == False)
+    print(check([8]) == False)
 
 
 if __name__ == "__main__":
-    main()
+    test()

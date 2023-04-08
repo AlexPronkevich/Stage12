@@ -3,13 +3,13 @@
 # отрицательных и нулевых значений, а также меняет местами
 # экстремальные значения
 
+# Это вторая версия программы, где список мы задаем самостоятельно,
+# и поэтому можем сделать проверочные тесты
 
-# # Version 1.0
-# # Author: Pronkevich Alexandra
-# # Group: QA2022
-# # Date: 01.04.2023
-
-from random import randrange
+# Version 2.0
+# Author: Pronkevich Alexandra
+# Group: QA2022
+# Date: 06.04.2023
 
 
 def get_max_value(ls):
@@ -25,19 +25,6 @@ def get_min_value(ls):
 def get_average(ls):
     avg = sum(ls) / len(ls)
     return avg
-
-
-def rand_init(ls, a=-100, b=100):
-    for i in range(len(ls)):
-        ls[i] = randrange(a, b)
-    return ls
-
-
-def create_list(size, value=0):
-    ls = []
-    for _ in range(size):
-        ls.append(value)
-    return ls
 
 
 def count_number_positive(ls):
@@ -63,7 +50,7 @@ def count_number_negative(ls):
 def count_number_zero(ls):
     index = 0
     count_zero = 0
-    while index > len(ls):
+    while index < len(ls):
         if ls[index] == 0:
             count_zero += 1
         index += 1
@@ -94,9 +81,7 @@ def swap_extreme_elements(ls):
 
 
 def main():
-    size = int(input("Введите размер списка: "))
-    ls = create_list(size)
-    rand_init(ls)
+    ls = [2, -23, 0, 34, 12, -4, 0, 45, -21, 7, -55]
     print("Последовательность начальная:", ls)
     max_value = get_max_value(ls)
     print("Наибольший элемент: ", max_value)
@@ -114,10 +99,19 @@ def main():
     print("Новая последовательность: ", ls)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
 
-# В данной версии программы отсутствуют тесты,
-# так как список создается случайным способом.
-# Тесты приведены во второй версии данной прграммы :
-# task01_2_general.py
+
+def test():
+    ls = [2, -23, 0, 34, 12, -4, 0, 45, -21, 7, -55]
+    print(get_max_value(ls) == 45)
+    print(get_min_value(ls) == -55)
+    print(get_average(ls) == -0.2727272727272727)
+    print(count_number_positive(ls) == 5)
+    print(count_number_negative(ls) == 4)
+    print(count_number_zero(ls) == 2)
+    print(swap_extreme_elements(ls) == [2, -23, 0, 34, 12, -4, 0, -55, -21, 7, 45])
+
+
+test()

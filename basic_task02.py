@@ -10,6 +10,12 @@
 
 
 def check_specularity(ls):
+    if not isinstance(ls, (list, tuple)):
+        return False
+
+    if len(ls) == 0 or len(ls) == 1:
+        return False
+
     copy_ls = ls[:]
     ls.reverse()
 
@@ -20,23 +26,15 @@ def check_specularity(ls):
     return flag
 
 
-def check_specularity(lst):
-    copy_lst = lst[:]
-    lst.reverse()
-
-    flag = True
-    for index in range(len(lst) - 1):
-        if lst[index] != copy_lst[index]:
-            flag = False
-    return flag
-
-
-def main():
-    ls = [1, -8, 76, 0, 7, 0, 76, -8, 1]      # зеркальные элементы
-    lst = [-6, 55, 0, 6, -2, 46, -11, 1, 7]   # вектор не зеркальный
-    print(check_specularity(ls))
-    print(check_specularity(lst))
+def test():
+    print(check_specularity([1, -8, 76, 0, 7, 0, 76, -8, 1]) == True)
+    print(check_specularity([1, -8, 76, 0, 7, 7, 0, 76, -8, 1]) == True)
+    print(check_specularity([-6, 55, 0, 6, -2, 46, -11, 1, 7]) == False)
+    print(check_specularity(["kkhfflhghjloklkfgcgvm"]) == False)
+    print(check_specularity(["$%^#$*&^"]) == False)
+    print(check_specularity([]) == False)
+    print(check_specularity([-5]) == False)
 
 
 if __name__ == "__main__":
-    main()
+    test()

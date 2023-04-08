@@ -1,4 +1,3 @@
-
 # ls = (1, 0, -7, -55, 87,  6, 89, 54, 3, 97, - 9, 0, -54, 5)
 #
 # # def get_max_value(ls):
@@ -6,25 +5,24 @@
 # print(f"Наименьший элемент  = {min(ls)}")
 # print(f"Среднеарифметическое  = {sum(ls) / len(ls)}")
 #
-# for index in range (1, )
+def count_odd(ls):
+    if not isinstance(ls, (list, tuple)):
+        return False
 
-def create_list(size, value=0):
-    ls = []
-    for _ in range(size):
-        ls.append(value)
-    return ls
+    if len(ls) == 0 or len(ls) == 1:
+        return False
+
+    count = 0
+    for index in range(len(ls)):
+        if ls[index] % 2 == 1:
+            count += 1
+    return count
+
 
 def main():
-    size = int(input("Введите размер списка: "))
-    ls = create_list(size)
-    print(ls)
-    # print(f"пятерок -   {count(count_fives(ls)) / size * 100} %")
-    # print(f"четверок -   {count(count_fours(ls)) / size * 100} %")
-    # print(f"троек -   {count(count_three(ls)) / size * 100} %")
-    # print(f"двоек -   {count(count_twos(ls)) / size * 100} %")
-    # print(f"единиц -   {count(count_units(ls)) / size * 100} %")
-    # print(f"нулей -   {count(count_zeros(ls)) / size * 100} %")
+    # ls[1, -5, 2, 0, 0, -5, 9]
+    print(count_odd([-7, -8, 7, -7, 2, 0, -7, 7, 5, -44, 3]))
+
 
 if __name__ == "__main__":
     main()
-
